@@ -154,10 +154,11 @@ All six chapters live in the README. Split a chapter into `docs/` only if it pas
 
 - Windows 10, PowerShell or Git Bash. Line endings are normalized to LF by `.gitattributes`.
 - Python: conda environment `LLMPython311` (`C:\Users\Admin\anaconda3\envs\LLMPython311\python.exe`). Install `anthropic` before running API examples.
-- Git identity for this repository: Ben Cheng <ben546070853@gmail.com>, branch `main`. No remote yet.
+- Git identity for this repository: Ben Cheng <ben546070853@gmail.com>, branch `main`. Remote `origin` is `git@github.com:benchengai/awesome-fable-5-1-cookbook.git` over SSH (key `~/.ssh/id_ed25519`, registered on the benchengai account 2026-09-03). Push over HTTPS does not work from an automated shell because the credential manager's login window never reaches the desktop; keep the SSH remote.
+- The GitHub repository was created private on 2026-09-03. Switch it to public only after checking how the README renders (SVG, Mermaid, badges).
 
 ## Open items
 
 - [ ] Add the source URL for the Claude Pro subscription note (Fable 5.1 costs extra on Pro; Opus 5 is the strongest model included). Until then it is tagged `estimate` in the README.
 - [ ] Add the Digital Applied URL to `data/facts.json`.
-- [ ] Create the GitHub remote and push; then add the last-commit badge.
+- [ ] After the repository goes public, add the shields.io last-commit badge (it cannot read a private repository).
