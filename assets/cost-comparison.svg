@@ -1,0 +1,142 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="640" viewBox="0 0 1200 640" role="img" aria-labelledby="t d" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif">
+  <title id="t">Claude Fable 5.1: what it costs, in three numbers</title>
+  <desc id="d">Three panels. One: cache read price per million tokens, Fable 5 $1.00, Fable 5.1 $0.25, Opus 5 $0.50. Two: cost per task at max effort from Artificial Analysis, Opus 5 $2.34, Fable 5 $3.14, Fable 5.1 $3.76, Fable 5.1 at xhigh $2.72. Three: Terminal-Bench-Science score against cost per task at five effort levels; Fable 5.1 at low scores 26.3% for $11.1, Fable 5 at max scores 24.7% for $44.1.</desc>
+  <rect width="1200" height="640" fill="#fcfcfb"/>
+  <rect x="0.5" y="0.5" width="1199" height="639" fill="none" stroke="#0b0b0b" stroke-opacity="0.1"/>
+
+  <!-- Header -->
+  <text x="40" y="48" font-size="26" font-weight="600" fill="#0b0b0b">Claude Fable 5.1: what it costs, in three numbers</text>
+  <text x="40" y="74" font-size="14" fill="#52514e">Prices per million tokens, cost per task, and what the effort level does to both. Last updated 2026-09-03.</text>
+
+  <!-- Legend -->
+  <g font-size="13" fill="#52514e">
+    <circle cx="46" cy="104" r="5" fill="#2a78d6"/><text x="58" y="108">Claude Fable 5.1</text>
+    <circle cx="196" cy="104" r="5" fill="#eb6834"/><text x="208" y="108">Claude Opus 5</text>
+    <circle cx="326" cy="104" r="5" fill="#898781"/><text x="338" y="108">Claude Fable 5 (previous model)</text>
+  </g>
+
+  <!-- Panel dividers -->
+  <line x1="410" y1="132" x2="410" y2="556" stroke="#e1e0d9"/>
+  <line x1="800" y1="132" x2="800" y2="556" stroke="#e1e0d9"/>
+
+  <!-- Panel 1: cache read price -->
+  <text x="40" y="150" font-size="15" font-weight="600" fill="#0b0b0b">1. Cache reads cost 75% less</text>
+  <text x="40" y="170" font-size="12" fill="#898781">USD per million cached input tokens</text>
+  <text x="40" y="232" font-size="48" font-weight="600" fill="#0b0b0b">-75%</text>
+  <text x="40" y="254" font-size="13" fill="#52514e">$1.00 on Fable 5, $0.25 on Fable 5.1</text>
+
+  <line x1="140" y1="286" x2="140" y2="404" stroke="#c3c2b7"/>
+  <g font-size="13" fill="#0b0b0b">
+    <text x="40" y="305">Fable 5</text>
+    <path d="M140 290 H336 a4 4 0 0 1 4 4 V306 a4 4 0 0 1 -4 4 H140 Z" fill="#898781"/>
+    <text x="348" y="305">$1.00</text>
+
+    <text x="40" y="350">Fable 5.1</text>
+    <path d="M140 335 H186 a4 4 0 0 1 4 4 V351 a4 4 0 0 1 -4 4 H140 Z" fill="#2a78d6"/>
+    <text x="198" y="350">$0.25</text>
+
+    <text x="40" y="395">Opus 5</text>
+    <path d="M140 380 H236 a4 4 0 0 1 4 4 V396 a4 4 0 0 1 -4 4 H140 Z" fill="#eb6834"/>
+    <text x="248" y="395">$0.50</text>
+  </g>
+
+  <text x="40" y="450" font-size="13" font-weight="600" fill="#0b0b0b">Fable 5.1 reads cached input for half of Opus 5's price.</text>
+  <text x="40" y="472" font-size="12.5" fill="#52514e">Its uncached input still costs twice as much ($10 against $5),</text>
+  <text x="40" y="490" font-size="12.5" fill="#52514e">so the bill flips in Fable 5.1's favor only once cached context</text>
+  <text x="40" y="508" font-size="12.5" fill="#52514e">dominates. Chapter 3 gives the break-even: about 140,000</text>
+  <text x="40" y="526" font-size="12.5" fill="#52514e">cached tokens per turn.</text>
+
+  <!-- Panel 2: cost per task -->
+  <text x="430" y="150" font-size="15" font-weight="600" fill="#0b0b0b">2. Cost per task at max effort</text>
+  <text x="430" y="170" font-size="12" fill="#898781">USD per task, Artificial Analysis Intelligence Index (score in brackets)</text>
+
+  <line x1="590" y1="196" x2="590" y2="359" stroke="#c3c2b7"/>
+  <g font-size="13" fill="#0b0b0b">
+    <text x="430" y="215">Opus 5 max (63)</text>
+    <path d="M590 200 H679 a4 4 0 0 1 4 4 V216 a4 4 0 0 1 -4 4 H590 Z" fill="#eb6834"/>
+    <text x="691" y="215">$2.34</text>
+
+    <text x="430" y="260">Fable 5 max (62)</text>
+    <path d="M590 245 H711 a4 4 0 0 1 4 4 V261 a4 4 0 0 1 -4 4 H590 Z" fill="#898781"/>
+    <text x="723" y="260">$3.14</text>
+
+    <text x="430" y="305">Fable 5.1 max (66)</text>
+    <path d="M590 290 H736 a4 4 0 0 1 4 4 V306 a4 4 0 0 1 -4 4 H590 Z" fill="#2a78d6"/>
+    <text x="748" y="305">$3.76</text>
+
+    <text x="430" y="350">Fable 5.1 xhigh (65)</text>
+    <path d="M590 335 H695 a4 4 0 0 1 4 4 V351 a4 4 0 0 1 -4 4 H590 Z" fill="#2a78d6" fill-opacity="0.55"/>
+    <text x="707" y="350">$2.72</text>
+  </g>
+
+  <text x="430" y="400" font-size="13" font-weight="600" fill="#0b0b0b">1.6x Opus 5 per task, and 20% above Fable 5.</text>
+  <text x="430" y="422" font-size="12.5" fill="#52514e">Per-token prices are the same as Fable 5's;</text>
+  <text x="430" y="440" font-size="12.5" fill="#52514e">the difference is 1.7x more output tokens.</text>
+  <text x="430" y="458" font-size="12.5" fill="#52514e">xhigh gives up 1 index point and saves $1.04 per task.</text>
+  <text x="430" y="476" font-size="12.5" fill="#52514e">Without the cache-read cut it would cost about $5.16.</text>
+  <text x="430" y="504" font-size="11" fill="#898781">Artificial Analysis supported Anthropic's pre-release evaluation.</text>
+
+  <!-- Panel 3: effort ladder -->
+  <text x="820" y="150" font-size="15" font-weight="600" fill="#0b0b0b">3. Effort beats model: Terminal-Bench-Science 0.1</text>
+  <text x="820" y="170" font-size="12" fill="#898781">Score (%) against mean cost per task (USD), five effort levels</text>
+
+  <g stroke="#e1e0d9">
+    <line x1="868" y1="430" x2="1150" y2="430"/>
+    <line x1="868" y1="350" x2="1150" y2="350"/>
+    <line x1="868" y1="270" x2="1150" y2="270"/>
+    <line x1="868" y1="190" x2="1150" y2="190"/>
+  </g>
+  <g font-size="11" fill="#898781" text-anchor="end">
+    <text x="860" y="434">0</text>
+    <text x="860" y="354">20</text>
+    <text x="860" y="274">40</text>
+    <text x="860" y="194">60</text>
+  </g>
+  <g font-size="11" fill="#898781" text-anchor="middle">
+    <text x="868" y="448">$0</text>
+    <text x="924" y="448">$10</text>
+    <text x="981" y="448">$20</text>
+    <text x="1037" y="448">$30</text>
+    <text x="1094" y="448">$40</text>
+    <text x="1150" y="448">$50</text>
+    <text x="1009" y="466">mean cost per task (USD)</text>
+  </g>
+
+  <polyline points="964.4,380.8 1009,344.4 1061.5,330 1071,336.4 1116.7,331.2" fill="none" stroke="#898781" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+  <polyline points="930.6,324.8 952,287.2 982.5,270 1047.4,232 1081.8,219.6" fill="none" stroke="#2a78d6" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+
+  <g fill="#898781" stroke="#fcfcfb" stroke-width="2">
+    <circle cx="964.4" cy="380.8" r="4.5"/>
+    <circle cx="1009" cy="344.4" r="4.5"/>
+    <circle cx="1061.5" cy="330" r="4.5"/>
+    <circle cx="1071" cy="336.4" r="4.5"/>
+    <circle cx="1116.7" cy="331.2" r="4.5"/>
+  </g>
+  <g fill="#2a78d6" stroke="#fcfcfb" stroke-width="2">
+    <circle cx="930.6" cy="324.8" r="4.5"/>
+    <circle cx="952" cy="287.2" r="4.5"/>
+    <circle cx="982.5" cy="270" r="4.5"/>
+    <circle cx="1047.4" cy="232" r="4.5"/>
+    <circle cx="1081.8" cy="219.6" r="4.5"/>
+  </g>
+
+  <g font-size="11" fill="#52514e">
+    <text x="938" y="339">low</text>
+    <text x="1090" y="224">max</text>
+    <text x="972" y="395">low</text>
+    <text x="1125" y="335">max</text>
+  </g>
+
+  <text x="820" y="492" font-size="13" font-weight="600" fill="#0b0b0b">Fable 5.1 at low: 26.3% for $11.1 per task.</text>
+  <text x="820" y="510" font-size="13" font-weight="600" fill="#0b0b0b">Fable 5 at max: 24.7% for $44.1 per task.</text>
+  <text x="820" y="532" font-size="12.5" fill="#52514e">The new model's lowest setting beats the old model's</text>
+  <text x="820" y="550" font-size="12.5" fill="#52514e">top setting at a quarter of the cost.</text>
+  <text x="820" y="568" font-size="12.5" fill="#52514e">Standard error: 3.5 to 4.5 points per model.</text>
+
+  <!-- Footer -->
+  <g font-size="11" fill="#898781">
+    <text x="40" y="592">Sources: Anthropic pricing page and the Claude Fable 5.1 launch post (platform.claude.com, anthropic.com), read 2026-09-03. Panel 3 points are the launch post's chart data.</text>
+    <text x="40" y="608">Cost per task and Intelligence Index: Artificial Analysis (artificialanalysis.ai/articles/claude-fable-5-1), which supported Anthropic's pre-release evaluation.</text>
+    <text x="40" y="624">github.com/benchengai/awesome-fable-5-1-cookbook, MIT license.</text>
+  </g>
+</svg>
