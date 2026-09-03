@@ -2,6 +2,14 @@
 
 All notable changes to this guide. Dates are YYYY-MM-DD. Each entry names the source behind any number that changed.
 
+## v0.1.1 - 2026-09-03
+
+Wording pass on both READMEs, no number changed.
+
+- Added a "how to use this guide" block and a short glossary (token, input and output, prompt cache, effort, cost per solved task, break-even) near the top.
+- Moved the grade tags out of running sentences into table columns and a source line at the end of each section.
+- Shortened chapter openers and the commentary around tables; explained terms at first use.
+
 ## v0.1 - 2026-09-03
 
 First public version.
