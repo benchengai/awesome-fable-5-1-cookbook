@@ -1,0 +1,606 @@
+{
+  "schema_version": 1,
+  "last_verified": "2026-09-03",
+  "currency": "USD",
+  "grades": {
+    "official": "Printed on an Anthropic pricing, model, or API documentation page.",
+    "measured": "A benchmark or cost measurement published by Anthropic or a named third party.",
+    "derived": "Computed from official or measured numbers. The formula is in the note.",
+    "estimate": "A rule of thumb or unsourced statement. The assumption is in the note."
+  },
+  "sources": {
+    "anthropic_pricing": {
+      "title": "Pricing",
+      "url": "https://platform.claude.com/docs/en/about-claude/pricing",
+      "verified": "2026-09-03"
+    },
+    "anthropic_models_overview": {
+      "title": "Models overview",
+      "url": "https://platform.claude.com/docs/en/about-claude/models/overview",
+      "verified": "2026-09-03"
+    },
+    "anthropic_fable_5_1_overview": {
+      "title": "Claude Fable 5.1",
+      "url": "https://platform.claude.com/docs/en/models/fable-5-1/overview",
+      "verified": "2026-09-03"
+    },
+    "anthropic_fable_5_1_whats_new": {
+      "title": "What's new in Claude Fable 5.1",
+      "url": "https://platform.claude.com/docs/en/models/fable-5-1/whats-new-fable-5-1",
+      "verified": "2026-09-03"
+    },
+    "anthropic_prompt_caching": {
+      "title": "Prompt caching",
+      "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-caching",
+      "verified": "2026-09-03"
+    },
+    "anthropic_effort": {
+      "title": "Effort",
+      "url": "https://platform.claude.com/docs/en/build-with-claude/effort",
+      "verified": "2026-09-03"
+    },
+    "anthropic_cost_guide": {
+      "title": "Optimizing for cost and intelligence",
+      "url": "https://platform.claude.com/docs/en/about-claude/models/optimizing-for-cost-and-intelligence",
+      "verified": "2026-09-03",
+      "note": "Read from the raw .md page, not a summary. Benchmark protocols are in the page's reference list."
+    },
+    "anthropic_launch_post": {
+      "title": "Introducing Claude Fable 5.1 and Claude Mythos 5.1",
+      "url": "https://www.anthropic.com/claude-fable-and-mythos-5-1",
+      "published": "2026-09-01",
+      "verified": "2026-09-03",
+      "note": "Per-effort cost and score points are read from the chart data embedded in the page."
+    },
+    "artificial_analysis": {
+      "title": "Claude Fable 5.1 analysis, Artificial Analysis Intelligence Index",
+      "url": "https://artificialanalysis.ai/articles/claude-fable-5-1",
+      "verified": "2026-09-03",
+      "disclosure": "Artificial Analysis states: \"We supported Anthropic with pre-release evaluation of Claude Fable 5.1.\" Treat its numbers as third-party measurements made with pre-release access, not as independent replication."
+    },
+    "digital_applied": {
+      "title": "Fable 5.1 versus Opus 5 break-even analysis",
+      "url": null,
+      "note": "Break-even framing credited to Digital Applied. URL to be added. The arithmetic is reproduced in examples/cost_calculator.py from official prices, so the numbers do not depend on that source."
+    }
+  },
+  "models": {
+    "claude-fable-5-1": {
+      "display_name": "Claude Fable 5.1",
+      "release_date": "2026-09-01",
+      "pricing_usd_per_mtok": {
+        "input": 10.0,
+        "output": 50.0,
+        "cache_write_5m": 12.5,
+        "cache_write_1h": 20.0,
+        "cache_read": 0.25,
+        "batch_input": 5.0,
+        "batch_output": 25.0
+      },
+      "cache_read_multiplier": 0.025,
+      "context_window_tokens": 1000000,
+      "max_output_tokens": 128000,
+      "effort_levels": ["low", "medium", "high", "xhigh", "max"],
+      "default_effort": "high",
+      "thinking": "adaptive, always on; thinking.type disabled and budget_tokens return 400",
+      "reliable_knowledge_cutoff": "2026-06",
+      "min_cacheable_prefix_tokens": 512,
+      "retirement_not_before": "2027-09-01",
+      "long_context_premium": false,
+      "grade": "official",
+      "sources": ["anthropic_pricing", "anthropic_fable_5_1_overview", "anthropic_prompt_caching"]
+    },
+    "claude-fable-5": {
+      "display_name": "Claude Fable 5",
+      "pricing_usd_per_mtok": {
+        "input": 10.0,
+        "output": 50.0,
+        "cache_write_5m": 12.5,
+        "cache_write_1h": 20.0,
+        "cache_read": 1.0,
+        "batch_input": 5.0,
+        "batch_output": 25.0
+      },
+      "cache_read_multiplier": 0.1,
+      "context_window_tokens": 1000000,
+      "max_output_tokens": 128000,
+      "effort_levels": ["low", "medium", "high", "xhigh", "max"],
+      "default_effort": "high",
+      "min_cacheable_prefix_tokens": 512,
+      "grade": "official",
+      "sources": ["anthropic_pricing", "anthropic_prompt_caching"]
+    },
+    "claude-opus-5": {
+      "display_name": "Claude Opus 5",
+      "pricing_usd_per_mtok": {
+        "input": 5.0,
+        "output": 25.0,
+        "cache_write_5m": 6.25,
+        "cache_write_1h": 10.0,
+        "cache_read": 0.5,
+        "batch_input": 2.5,
+        "batch_output": 12.5
+      },
+      "cache_read_multiplier": 0.1,
+      "context_window_tokens": 1000000,
+      "max_output_tokens": 128000,
+      "effort_levels": ["low", "medium", "high", "xhigh", "max"],
+      "default_effort": "high",
+      "reliable_knowledge_cutoff": "2026-05",
+      "min_cacheable_prefix_tokens": 512,
+      "long_context_premium": false,
+      "grade": "official",
+      "sources": ["anthropic_pricing", "anthropic_models_overview", "anthropic_prompt_caching"]
+    },
+    "claude-sonnet-5": {
+      "display_name": "Claude Sonnet 5",
+      "pricing_usd_per_mtok": {
+        "input": 2.0,
+        "output": 10.0,
+        "cache_write_5m": 2.5,
+        "cache_write_1h": 4.0,
+        "cache_read": 0.2,
+        "batch_input": 1.0,
+        "batch_output": 5.0
+      },
+      "cache_read_multiplier": 0.1,
+      "context_window_tokens": 1000000,
+      "max_output_tokens": 128000,
+      "effort_levels": ["low", "medium", "high", "xhigh", "max"],
+      "default_effort": "high",
+      "reliable_knowledge_cutoff": "2026-01",
+      "min_cacheable_prefix_tokens": 1024,
+      "long_context_premium": false,
+      "grade": "official",
+      "sources": ["anthropic_pricing", "anthropic_models_overview", "anthropic_prompt_caching"],
+      "note": "The $2/$10 price was announced as introductory through 2026-08-31 and is now the standard price; the planned increase to $3/$15 was cancelled."
+    },
+    "claude-haiku-4-5": {
+      "display_name": "Claude Haiku 4.5",
+      "pricing_usd_per_mtok": {
+        "input": 1.0,
+        "output": 5.0,
+        "cache_write_5m": 1.25,
+        "cache_write_1h": 2.0,
+        "cache_read": 0.1,
+        "batch_input": 0.5,
+        "batch_output": 2.5
+      },
+      "cache_read_multiplier": 0.1,
+      "context_window_tokens": 200000,
+      "max_output_tokens": 64000,
+      "effort_levels": [],
+      "default_effort": null,
+      "reliable_knowledge_cutoff": "2025-02",
+      "min_cacheable_prefix_tokens": 4096,
+      "grade": "official",
+      "sources": ["anthropic_pricing", "anthropic_models_overview", "anthropic_prompt_caching"]
+    }
+  },
+  "facts": {
+    "cache_read_price_cut": {
+      "statement": "Fable 5.1 cache reads cost $0.25 per million tokens, down from $1.00 on Fable 5 (0.025x base input instead of 0.1x).",
+      "values": {"fable_5_usd_per_mtok": 1.0, "fable_5_1_usd_per_mtok": 0.25, "reduction": 0.75},
+      "grade": "official",
+      "source": "anthropic_pricing",
+      "verified": "2026-09-03"
+    },
+    "cache_write_multipliers": {
+      "statement": "Cache writes cost 1.25x base input for the 5-minute TTL and 2x for the 1-hour TTL on every model, including Fable 5.1.",
+      "values": {"write_5m": 1.25, "write_1h": 2.0, "read_default": 0.1, "read_fable_5_1": 0.025},
+      "grade": "official",
+      "source": "anthropic_pricing",
+      "verified": "2026-09-03"
+    },
+    "cache_limits": {
+      "statement": "Up to 4 cache_control breakpoints per request; a 20-block lookback window per breakpoint; minimum cacheable prefix 512 tokens on Fable 5.1, Fable 5, and Opus 5, 1024 on Sonnet 5, 4096 on Haiku 4.5. Cache lifetime is measured from the start of the request that wrote or read the entry.",
+      "values": {"max_breakpoints": 4, "lookback_blocks": 20, "min_prefix_fable_5_1": 512, "min_prefix_sonnet_5": 1024, "min_prefix_haiku_4_5": 4096},
+      "grade": "official",
+      "source": "anthropic_prompt_caching",
+      "verified": "2026-09-03"
+    },
+    "batch_discount": {
+      "statement": "The Batch API takes 50% off every token, including cache reads and writes, and stacks with caching. Fable 5.1 batch prices are $5 input and $25 output per million tokens.",
+      "values": {"discount": 0.5, "fable_5_1_batch_input": 5.0, "fable_5_1_batch_output": 25.0},
+      "grade": "official",
+      "source": "anthropic_pricing",
+      "verified": "2026-09-03"
+    },
+    "long_context_pricing": {
+      "statement": "Claude 4.6 and later models include the full 1M-token context window at standard pricing; a 900k-token request is billed at the same per-token rate as a 9k-token request, and caching and batch discounts apply across the whole window.",
+      "grade": "official",
+      "source": "anthropic_pricing",
+      "verified": "2026-09-03"
+    },
+    "effort_levels": {
+      "statement": "Fable 5.1 supports low, medium, high, xhigh, and max. high is the default and equals omitting the parameter. Effort scales every output token: text, tool calls, and thinking. Lower effort also means fewer and terser tool calls.",
+      "grade": "official",
+      "source": "anthropic_effort",
+      "verified": "2026-09-03"
+    },
+    "effort_cache_interaction": {
+      "statement": "Changing the top-level effort between requests invalidates the prompt cache from that point. On Fable 5.1 and Opus 5 a per-message effort change (a role system message with empty content and output_config.effort, beta header mid-conversation-output-config-2026-07-01) preserves the cache. Fable 5 returns 400 for per-message effort.",
+      "grade": "official",
+      "source": "anthropic_effort",
+      "verified": "2026-09-03"
+    },
+    "official_positioning": {
+      "statement": "Anthropic's models overview: start with Claude Opus 5 for most workloads; use Claude Fable 5.1 for demanding reasoning and long-horizon agentic work, or when evals on Opus 5 at higher effort still fall short.",
+      "grade": "official",
+      "source": "anthropic_models_overview",
+      "verified": "2026-09-03"
+    },
+    "cost_guide_positioning": {
+      "statement": "Anthropic's cost guide: \"For most agent workloads, start with Claude Fable 5.1 at low effort and raise effort where it misses. Per token it costs twice what Claude Opus 5 does on uncached input, but half as much on cached input ($0.25 against $0.50 per million), and in an agent loop cached input is the largest term.\"",
+      "grade": "official",
+      "source": "anthropic_cost_guide",
+      "verified": "2026-09-03",
+      "note": "Applies to agent loops where cached input dominates. The models overview's advice (start with Opus 5) covers everything else."
+    },
+    "fable_5_to_5_1_breaking_changes": {
+      "statement": "Three breaking changes from Fable 5: tool_choice any or tool returns 400; thinking blocks are readable only by the model that produced it or a newer one; editing anything before a Fable 5.1 thinking block invalidates it (400 for accounts created on or after 2026-08-31, recorded but not acted on for older accounts unless prefix_mismatch_behavior is set).",
+      "grade": "official",
+      "source": "anthropic_fable_5_1_whats_new",
+      "verified": "2026-09-03"
+    },
+    "fable_5_1_additive_features": {
+      "statement": "Additive features: per-message effort (beta mid-conversation-output-config-2026-07-01), turn-scoped system messages with clear_at next_user_message (beta mid-conversation-system-clear-at-2026-08-21), thinking.display updates (beta thinking-display-updates-2026-08-18), content provenance.",
+      "grade": "official",
+      "source": "anthropic_fable_5_1_whats_new",
+      "verified": "2026-09-03"
+    },
+    "launch_benchmarks_max_effort": {
+      "statement": "Launch post benchmark table, Fable 5 to Fable 5.1 (max effort).",
+      "values": {
+        "terminal_bench_science_0_1": {"fable_5": 24.7, "fable_5_1": 52.6, "unit": "percent", "standard_error_points": "3.5 to 4.5"},
+        "terminal_bench_4_0": {"fable_5": 42.0, "fable_5_1": 55.8, "mythos_5_1": 60.9, "unit": "percent"},
+        "cursorbench_3_2_0": {"fable_5": 70.5, "fable_5_1": 73.4, "unit": "percent"},
+        "gdpval_aa_v2": {"fable_5": 1723, "fable_5_1": 1853, "unit": "elo"},
+        "osworld_2_0": {"fable_5": 72.9, "fable_5_1": 77.9, "unit": "percent"},
+        "humanitys_last_exam_with_tools": {"fable_5": 63.8, "fable_5_1": 65.0, "unit": "percent"}
+      },
+      "grade": "measured",
+      "source": "anthropic_launch_post",
+      "verified": "2026-09-03"
+    },
+    "terminal_bench_science_effort_ladder": {
+      "statement": "Terminal-Bench-Science 0.1 score (%) and mean cost per task (USD) at each effort level, from the launch post's chart data.",
+      "values": {
+        "fable_5_1": {"low": [11.1, 26.3], "medium": [14.9, 35.7], "high": [20.3, 40.0], "xhigh": [31.8, 49.5], "max": [37.9, 52.6]},
+        "fable_5": {"low": [17.1, 12.3], "medium": [25.0, 21.4], "high": [34.3, 25.0], "xhigh": [36.0, 23.4], "max": [44.1, 24.7]},
+        "format": "[cost_per_task_usd, score_percent]"
+      },
+      "grade": "measured",
+      "source": "anthropic_launch_post",
+      "verified": "2026-09-03"
+    },
+    "terminal_bench_4_0_effort_ladder": {
+      "statement": "Terminal-Bench 4.0 score (%) and mean cost per task (USD) for Fable 5.1 at each effort level, from the launch post's chart data. The comparison series in that chart is Mythos 5, not Fable 5.",
+      "values": {
+        "fable_5_1": {"low": [5.7, 40.2], "medium": [7.8, 43.4], "high": [10.5, 49.4], "xhigh": [15.8, 51.3], "max": [19.5, 55.8]},
+        "format": "[cost_per_task_usd, score_percent]"
+      },
+      "grade": "measured",
+      "source": "anthropic_launch_post",
+      "verified": "2026-09-03"
+    },
+    "cursorbench_effort_ladder": {
+      "statement": "CursorBench 3.2.0 score (%) and mean cost per task (USD) at each effort level, from the launch post's chart data.",
+      "values": {
+        "fable_5_1": {"low": [2.90, 66.2], "medium": [3.53, 68.0], "high": [4.80, 69.4], "xhigh": [6.96, 72.8], "max": [9.64, 73.4]},
+        "fable_5": {"low": [4.46, 62.1], "medium": [6.80, 65.2], "high": [8.77, 66.5], "xhigh": [11.73, 68.4], "max": [17.32, 70.5]},
+        "format": "[cost_per_task_usd, score_percent]"
+      },
+      "grade": "measured",
+      "source": "anthropic_launch_post",
+      "verified": "2026-09-03"
+    },
+    "hle_with_tools_effort_ladder": {
+      "statement": "Humanity's Last Exam with tools, score (%) and mean cost per task (USD) at each effort level, from the launch post's chart data.",
+      "values": {
+        "fable_5_1": {"low": [0.52, 60.0], "medium": [0.67, 63.0], "high": [1.05, 64.8], "xhigh": [2.28, 65.1], "max": [3.20, 65.0]},
+        "fable_5": {"low": [0.61, 59.6], "medium": [1.01, 61.4], "high": [1.42, 63.2], "xhigh": [1.92, 63.5], "max": [3.44, 63.8]},
+        "format": "[cost_per_task_usd, score_percent]"
+      },
+      "grade": "measured",
+      "source": "anthropic_launch_post",
+      "verified": "2026-09-03"
+    },
+    "launch_indexed_cost": {
+      "statement": "Launch post indexed cost chart, Fable 5 = 100: Fable 5.1 costs 75 on a typical workload (about 25% less) and 55 on a highly agentic workload (about 45% less). In the Fable 5.1 bars, cache reads are 11 of the 75 and 17 of the 55 index points.",
+      "values": {"typical_index": 75, "typical_cache_reads_index": 11, "agentic_index": 55, "agentic_cache_reads_index": 17},
+      "grade": "measured",
+      "source": "anthropic_launch_post",
+      "verified": "2026-09-03"
+    },
+    "aa_intelligence_index": {
+      "statement": "Artificial Analysis Intelligence Index scores.",
+      "values": {"fable_5_1_max": 66, "fable_5_1_xhigh": 65, "opus_5_max": 63, "fable_5_max": 62},
+      "grade": "measured",
+      "source": "artificial_analysis",
+      "verified": "2026-09-03",
+      "note": "Third party with pre-release access; see the source disclosure."
+    },
+    "aa_cost_per_task": {
+      "statement": "Artificial Analysis mean cost per Intelligence Index task, USD.",
+      "values": {"fable_5_1_max": 3.76, "fable_5_1_xhigh": 2.72, "fable_5_max": 3.14, "opus_5_max": 2.34},
+      "grade": "measured",
+      "source": "artificial_analysis",
+      "verified": "2026-09-03",
+      "note": "Averaged over the whole Index suite, not a single benchmark. Includes the effect of Fable 5.1's cache-read price."
+    },
+    "aa_output_tokens": {
+      "statement": "Fable 5.1 at max emits about 1.7x the output tokens of Fable 5 at max over the Index run; its output volume ranges from 13.1M tokens at low effort to 143.7M at max.",
+      "values": {"output_token_ratio_vs_fable_5": 1.7, "output_tokens_low": 13100000, "output_tokens_max": 143700000},
+      "grade": "measured",
+      "source": "artificial_analysis",
+      "verified": "2026-09-03"
+    },
+    "aa_cache_cut_saving": {
+      "statement": "The cache-read price cut saves about $1.40 per Index task on Fable 5.1; without it the cost per task would be about $5.16.",
+      "values": {"saving_per_task": 1.40, "cost_without_cut": 5.16},
+      "grade": "measured",
+      "source": "artificial_analysis",
+      "verified": "2026-09-03",
+      "note": "5.16 = 3.76 + 1.40."
+    },
+    "aa_other_benchmarks": {
+      "statement": "Artificial Analysis runs: Terminal-Bench v2.1 91.4%, SciCode 62.0%, tau3-Banking 9 points above Fable 5.",
+      "values": {"terminal_bench_v2_1": 91.4, "scicode": 62.0, "tau3_banking_gain_points": 9},
+      "grade": "measured",
+      "source": "artificial_analysis",
+      "verified": "2026-09-03"
+    },
+    "swe_bench_pro_cost_per_solved": {
+      "statement": "SWE-bench Pro subset (482 problems selected for Anthropic's harness; scores are not comparable to the public leaderboard), pass rate and cost per solved task.",
+      "values": {
+        "fable_5_1_low": {"pass": 88.6, "usd_per_solved": 0.54},
+        "fable_5_1_default": {"pass": 92.1, "usd_per_solved": 1.19},
+        "opus_5_low": {"pass": 84.0, "usd_per_solved": 0.25},
+        "opus_5_default": {"pass": 91.7, "usd_per_solved": 1.01},
+        "sonnet_5_default": {"pass": 77.4, "usd_per_solved": 0.84}
+      },
+      "grade": "measured",
+      "source": "anthropic_cost_guide",
+      "verified": "2026-09-03",
+      "note": "Opus 5 at default averages two runs; reduced-effort settings are single runs; run 2026-08-04."
+    },
+    "swe_bench_pro_opus_5_effort_tradeoff": {
+      "statement": "On SWE-bench Pro, Opus 5 gave up about 2 points at medium for half the cost and about 8 points at low for a quarter of it.",
+      "grade": "measured",
+      "source": "anthropic_cost_guide",
+      "verified": "2026-09-03"
+    },
+    "rerun_failures": {
+      "statement": "Run every task at low and re-run failures at the default (Opus 5, SWE-bench Pro): 16% failed at low; after the re-run about 93% passed for about $0.45 per task, against 91.7% for $0.93 running everything at the default. Starting at medium solved about 94% for about $0.61.",
+      "values": {"low_then_default_pass": 93, "low_then_default_usd": 0.45, "all_default_pass": 91.7, "all_default_usd": 0.93, "medium_then_default_pass": 94, "medium_then_default_usd": 0.61},
+      "grade": "measured",
+      "source": "anthropic_cost_guide",
+      "verified": "2026-09-03"
+    },
+    "fable_5_to_5_1_upgrade_cost": {
+      "statement": "On SWE-bench Pro, Fable 5.1 matches Fable 5's score for 43% less per solved task, most of it the lower cache-read price. On DeepResearch Bench II the same upgrade costs 41% more per task at high (79% more at low) for 2 to 3 extra points, because the new model does more work per task there.",
+      "values": {"swe_bench_pro_cost_change": -0.43, "deepresearch_high_cost_change": 0.41, "deepresearch_low_cost_change": 0.79},
+      "grade": "measured",
+      "source": "anthropic_cost_guide",
+      "verified": "2026-09-03"
+    },
+    "deepresearch_bench_ii": {
+      "statement": "DeepResearch Bench II (50-task subset, 3 runs per setting): Fable 5.1 scored nearly the same at low, medium, and high while cost per task rose from $4.66 to $7.12. Opus 5 at default scored 71% for $6.71; Fable 5.1 at default 65% for $7.12; Fable 5.1 at low 66% for $4.66; Sonnet 5 at low 56% for $1.20.",
+      "values": {
+        "fable_5_1_low": {"score": 66, "usd_per_task": 4.66},
+        "fable_5_1_high": {"score": 65, "usd_per_task": 7.12},
+        "opus_5_default": {"score": 71, "usd_per_task": 6.71},
+        "sonnet_5_low": {"score": 56, "usd_per_task": 1.20}
+      },
+      "grade": "measured",
+      "source": "anthropic_cost_guide",
+      "verified": "2026-09-03"
+    },
+    "deepresearch_caching": {
+      "statement": "DeepResearch Bench II with and without prompt caching: Fable 5.1 fell from $37.94 to $7.12 per task (81% less); Sonnet 5 from $3.20 to $1.20. Runs read 79% to 90% of their input from the cache.",
+      "values": {"fable_5_1_uncached": 37.94, "fable_5_1_cached": 7.12, "sonnet_5_uncached": 3.20, "sonnet_5_cached": 1.20},
+      "grade": "measured",
+      "source": "anthropic_cost_guide",
+      "verified": "2026-09-03",
+      "note": "The $3.20 to $1.20 pair is Sonnet 5, not Opus 5. A summarizer got this wrong on 2026-09-03; the raw page is unambiguous."
+    },
+    "internal_coding_medium": {
+      "statement": "On Anthropic's internal agentic-coding benchmark (370 repository tasks), Fable 5.1 at medium matched Opus 5 at its default for about a third of the cost per attempt: $2.91 against $8.50.",
+      "values": {"fable_5_1_medium_usd_per_attempt": 2.91, "opus_5_default_usd_per_attempt": 8.50},
+      "grade": "measured",
+      "source": "anthropic_cost_guide",
+      "verified": "2026-09-03",
+      "note": "Direction confirmed from the raw sentence: \"Fable 5.1 at medium matched Opus 5 at its default for about a third of the cost per attempt ($2.91 against $8.50).\" An earlier summary had the models swapped."
+    },
+    "internal_coding_advisor": {
+      "statement": "Same benchmark: an Opus 5 executor with a Fable 5.1 advisor was the most accurate configuration measured, at $7.69 per attempt, 3.5 points over Opus 5 alone at the default.",
+      "values": {"usd_per_attempt": 7.69, "gain_points_vs_opus_5": 3.5},
+      "grade": "measured",
+      "source": "anthropic_cost_guide",
+      "verified": "2026-09-03"
+    },
+    "chartography": {
+      "statement": "Chartography (100 questions): Fable 5.1 at low scored 62.5 for $0.15 per chart; Opus 5 at low scored 49 for $0.38.",
+      "values": {"fable_5_1_low": {"score": 62.5, "usd_per_chart": 0.15}, "opus_5_low": {"score": 49, "usd_per_chart": 0.38}},
+      "grade": "measured",
+      "source": "anthropic_cost_guide",
+      "verified": "2026-09-03"
+    },
+    "research_effort_curves_fable_5": {
+      "statement": "On WideSearch, DeepWideSearch, BrowseComp, and GDPval with Fable 5, the accuracy-against-cost curve is nearly flat: low gave up 1 to 3 points for a third to a half off cost per task; medium matched the default's accuracy at about 70% to 87% of its cost; the default bought nothing measurable over medium. On DeepWideSearch, low took 4.5 minutes per problem against 7.9 at the default.",
+      "values": {"low_points_lost": "1 to 3", "low_cost_saving": "33% to 50%", "medium_cost_fraction": "70% to 87%", "low_minutes": 4.5, "default_minutes": 7.9},
+      "grade": "measured",
+      "source": "anthropic_cost_guide",
+      "verified": "2026-09-03"
+    },
+    "caching_agent_loops": {
+      "statement": "Prompt caching cut agent-loop cost by a factor of 2.7 to 5.3 on the cost guide's benchmarks and cut a small triage agent's bill by 83% (88% with input trimming). Over a day of real traffic, agent loops read a median 84% of their input from the cache and the top 10% read 94% or more; below about 80%, look for a cache breaker.",
+      "values": {"cost_factor_min": 2.7, "cost_factor_max": 5.3, "triage_saving": 0.83, "triage_saving_with_trimming": 0.88, "production_median_cache_share": 0.84, "top_decile_cache_share": 0.94},
+      "grade": "measured",
+      "source": "anthropic_cost_guide",
+      "verified": "2026-09-03"
+    },
+    "cache_breaker_cost": {
+      "statement": "Triage agent long sessions: $0.81 per session with no mid-session changes; $0.95 when an effort change and an added tool made mid-session rewrote 39,000 and 60,000 cached tokens; $0.92 when the changes rode on the compaction request; $0.75 when made on the first request after compaction.",
+      "values": {"no_changes": 0.81, "mid_session_changes": 0.95, "on_compaction": 0.92, "after_compaction": 0.75, "cached_tokens_rewritten": [39000, 60000]},
+      "grade": "measured",
+      "source": "anthropic_cost_guide",
+      "verified": "2026-09-03"
+    },
+    "loop_hygiene": {
+      "statement": "On the long triage run, pruning stale tool results at task boundaries saved 39% and compaction 32%, while context editing changed nothing; on the short 20-issue run nothing saved and context editing cost 74% more.",
+      "values": {"prune_saving_long": 0.39, "compaction_saving_long": 0.32, "context_editing_short_run_change": 0.74},
+      "grade": "measured",
+      "source": "anthropic_cost_guide",
+      "verified": "2026-09-03"
+    },
+    "keep_alive": {
+      "statement": "On Fable 5.1, keeping the 5-minute cache warm with a keep-alive (resend the previous request with max_tokens 0, stream off, within 4 minutes of the previous request's start and every 4 minutes after) is cheaper than the 1-hour TTL while pauses run minutes; the 1-hour TTL wins when pauses run toward an hour. With no pauses the 5-minute default cost 15% less than the 1-hour TTL on Sonnet 5 and 11% less on Opus 5.",
+      "values": {"keep_alive_interval_minutes": 4, "no_pause_saving_sonnet_5": 0.15, "no_pause_saving_opus_5": 0.11},
+      "grade": "measured",
+      "source": "anthropic_cost_guide",
+      "verified": "2026-09-03"
+    },
+    "max_tokens_cap": {
+      "statement": "A 16,384-token max_tokens cap ended 15% of Opus 5's attempts and 43% of Fable 5.1's at the default effort on an internal repository-task benchmark; only 9 of the 117 capped Fable attempts still passed. Cost per solved task was about the same as at 64,000 ($21 against $22) because capped runs solved proportionally fewer tasks. At 64,000 Fable 5.1 solved 58.5% instead of 36.3%; at 128,000, 60.0%. 64,000 covered all but 2 of about 14,000 turns.",
+      "values": {"cap_16k_opus_5_ended": 0.15, "cap_16k_fable_5_1_ended": 0.43, "fable_5_1_pass_16k": 36.3, "fable_5_1_pass_64k": 58.5, "fable_5_1_pass_128k": 60.0, "usd_per_solved_16k": 21, "usd_per_solved_64k": 22},
+      "grade": "measured",
+      "source": "anthropic_cost_guide",
+      "verified": "2026-09-03"
+    },
+    "task_budgets_fable_5_1": {
+      "statement": "On SWE-bench Pro with Fable 5.1, a generous task budget cut cost per task 44% for about 3 points of pass rate; the tightest allowed budget cut it 58% for 6 points.",
+      "values": {"generous_saving": 0.44, "generous_points_lost": 3, "tightest_saving": 0.58, "tightest_points_lost": 6},
+      "grade": "measured",
+      "source": "anthropic_cost_guide",
+      "verified": "2026-09-03"
+    },
+    "output_format": {
+      "statement": "Triage agent output format: a one-line answer cost $0.49 per run, the original two-line format $0.57, a memo $1.40 (2.8x the one-line answer, six times the output tokens). All three scored 78% to 85% correct, within run-to-run noise.",
+      "values": {"one_line": 0.49, "two_line": 0.57, "memo": 1.40, "memo_multiple": 2.8},
+      "grade": "measured",
+      "source": "anthropic_cost_guide",
+      "verified": "2026-09-03"
+    },
+    "prompt_audit": {
+      "statement": "Prompts written for Opus 4.8 cost 36% more per ticket on Opus 5 for no change in accuracy. After an audit the same prompts were 14% cheaper than the unaudited version and more accurate (97% of tickets, up from 92%).",
+      "values": {"unaudited_extra_cost": 0.36, "audited_saving": 0.14, "accuracy_before": 92, "accuracy_after": 97},
+      "grade": "measured",
+      "source": "anthropic_cost_guide",
+      "verified": "2026-09-03"
+    },
+    "tail_spend": {
+      "statement": "On 20 WideSearch problems ranked by cost, the two most expensive carried 43% of spend and the cheapest half 10%.",
+      "values": {"top_two_share": 0.43, "cheapest_half_share": 0.10},
+      "grade": "measured",
+      "source": "anthropic_cost_guide",
+      "verified": "2026-09-03"
+    },
+    "haiku_gpqa": {
+      "statement": "Haiku 4.5 answered GPQA Diamond questions at about a tenth of Opus 5's cost per question, with 63% accuracy against 92%, and fell much further behind on long coding tasks.",
+      "values": {"cost_fraction": 0.1, "haiku_accuracy": 63, "opus_5_accuracy": 92},
+      "grade": "measured",
+      "source": "anthropic_cost_guide",
+      "verified": "2026-09-03"
+    },
+    "per_task_ratio_fable_5_1_vs_opus_5": {
+      "statement": "Fable 5.1 at max costs 1.6x Opus 5 at max per Index task.",
+      "values": {"ratio": 1.607},
+      "grade": "derived",
+      "source": "artificial_analysis",
+      "verified": "2026-09-03",
+      "note": "3.76 / 2.34 = 1.607."
+    },
+    "per_task_ratio_fable_5_1_vs_fable_5": {
+      "statement": "Fable 5.1 at max costs 20% more per Index task than Fable 5 at max.",
+      "values": {"ratio": 1.197},
+      "grade": "derived",
+      "source": "artificial_analysis",
+      "verified": "2026-09-03",
+      "note": "3.76 / 3.14 = 1.197."
+    },
+    "price_ratios_vs_opus_5": {
+      "statement": "Per token, Fable 5.1 costs 2x Opus 5 on uncached input and output, and 0.5x on cache reads.",
+      "values": {"uncached_input_ratio": 2.0, "output_ratio": 2.0, "cache_read_ratio": 0.5},
+      "grade": "derived",
+      "source": "anthropic_pricing",
+      "verified": "2026-09-03",
+      "note": "10 / 5 = 2; 50 / 25 = 2; 0.25 / 0.50 = 0.5."
+    },
+    "break_even_cached_tokens_simple": {
+      "statement": "With 2,000 new input tokens and 1,000 output tokens per turn on top of a cached context, Fable 5.1 costs the same per turn as Opus 5 at about 140,000 cached tokens per turn; at 300,000 it is 22% cheaper and at 600,000 34% cheaper.",
+      "values": {"break_even_cached_tokens": 140000, "saving_at_300k": 0.22, "saving_at_600k": 0.34, "new_input_per_turn": 2000, "output_per_turn": 1000},
+      "grade": "derived",
+      "source": "anthropic_pricing",
+      "verified": "2026-09-03",
+      "note": "Per-turn cost = cached_tokens * cache_read + 2000 * input + 1000 * output, all per million. Fable 5.1: 0.25C + 0.07; Opus 5: 0.50C + 0.035 (C in millions). Equal at C = 0.035 / 0.25 = 0.14M. Assumes every cached token is a hit, new tokens billed at base input (no cache write), and equal output on both models. Framing credited to Digital Applied."
+    },
+    "break_even_cached_tokens_with_writes": {
+      "statement": "If the new tail (this turn's 2,000 input tokens and the previous turn's 1,000 output tokens) is written to the cache at the 5-minute rate instead of billed at base input, the break-even moves to about 175,000 cached tokens per turn.",
+      "values": {"break_even_cached_tokens": 175000},
+      "grade": "derived",
+      "source": "anthropic_pricing",
+      "verified": "2026-09-03",
+      "note": "Fable 5.1 fixed part: 3000 * 12.5 + 1000 * 50 = 0.0875 per turn; Opus 5: 3000 * 6.25 + 1000 * 25 = 0.04375. Difference 0.04375 over a read-price difference of 0.25 per million gives 0.175M."
+    },
+    "full_window_cost": {
+      "statement": "Filling the 1M window on Fable 5.1 costs $10.00 as uncached input, $12.50 as a 5-minute cache write, $20.00 as a 1-hour cache write, and $0.25 as a cache read. Batch halves each.",
+      "values": {"uncached": 10.0, "write_5m": 12.5, "write_1h": 20.0, "read": 0.25, "read_batch": 0.125},
+      "grade": "derived",
+      "source": "anthropic_pricing",
+      "verified": "2026-09-03",
+      "note": "1,000,000 tokens times the per-million price."
+    },
+    "cache_payback": {
+      "statement": "On Fable 5.1 a 5-minute cache entry pays for itself on the first read (1.25x write + 0.025x read = 1.275x, against 2x for sending the prefix twice uncached); a 1-hour entry pays for itself on the second read (2x + 0.05x = 2.05x against 3x).",
+      "values": {"reads_to_pay_back_5m": 1, "reads_to_pay_back_1h": 2},
+      "grade": "derived",
+      "source": "anthropic_pricing",
+      "verified": "2026-09-03"
+    },
+    "cache_reads_share_on_fable_5": {
+      "statement": "Reading the launch post's indexed chart backwards: on Fable 5, cache reads were about 44% of a typical workload's bill and about 68% of a highly agentic workload's.",
+      "values": {"typical_share": 0.44, "agentic_share": 0.68},
+      "grade": "derived",
+      "source": "anthropic_launch_post",
+      "verified": "2026-09-03",
+      "note": "Fable 5.1 cache-read index points 11 and 17 are a quarter of the Fable 5 price, so the Fable 5 shares were 44 and 68 of 100."
+    },
+    "tb_science_low_vs_fable_5_max": {
+      "statement": "On Terminal-Bench-Science 0.1, Fable 5.1 at low effort (26.3% for $11.1 per task) scores above Fable 5 at max (24.7% for $44.1 per task) at 25% of the cost. The difference in score is inside the benchmark's 3.5 to 4.5 point standard error; the difference in cost is not.",
+      "values": {"cost_fraction": 0.25},
+      "grade": "derived",
+      "source": "anthropic_launch_post",
+      "verified": "2026-09-03",
+      "note": "11.1 / 44.1 = 0.252."
+    },
+    "claude_pro_subscription": {
+      "statement": "Claude Pro subscribers pay extra to use Fable 5.1; Opus 5 is the strongest model included in the subscription.",
+      "grade": "estimate",
+      "source": null,
+      "verified": null,
+      "note": "Reported by the maintainer on 2026-09-03; source URL to be added, then regrade to official."
+    }
+  },
+  "discrepancies": [
+    {
+      "id": "aa_fable_5_1_cost_per_task",
+      "canonical": {"value": 3.76, "source": "artificial_analysis"},
+      "alternatives": [{"value": 3.69, "note": "Quoted by some secondary sources, which then derive '57% more expensive than Opus 5'."}],
+      "decision": "Use the Artificial Analysis article's own figure, $3.76, and the ratio 1.6x (3.76 / 2.34 = 1.61)."
+    },
+    {
+      "id": "internal_coding_medium_direction",
+      "canonical": {"value": "Fable 5.1 medium $2.91, Opus 5 default $8.50", "source": "anthropic_cost_guide"},
+      "alternatives": [{"value": "Opus 5 medium $2.91, Fable 5.1 medium $8.50", "note": "A summarizer output on 2026-09-03 and this repository's first outline had the models swapped."}],
+      "decision": "The raw sentence reads: Fable 5.1 at medium matched Opus 5 at its default for about a third of the cost per attempt ($2.91 against $8.50)."
+    },
+    {
+      "id": "deepresearch_caching_pair",
+      "canonical": {"value": "Sonnet 5 $3.20 to $1.20", "source": "anthropic_cost_guide"},
+      "alternatives": [{"value": "Opus 5 $3.20 to $1.20", "note": "Summarizer error on 2026-09-03."}],
+      "decision": "The chart caption on the raw page names Claude Sonnet 5."
+    }
+  ]
+}
